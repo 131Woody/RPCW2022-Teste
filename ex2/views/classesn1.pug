@@ -1,0 +1,18 @@
+extends layout 
+
+block content 
+ h1.w3-cyan.w3-center.w3-monospace Classes de Nível 1 
+
+ table 
+  tr 
+   th Título 
+   th Código 
+
+   each c in dados
+    tr
+     td= c.titulo 
+     td
+      a(href='/classe/' + c.codigo)= c.codigo
+    
+ p
+  a(href='/') Voltar à Página Inicial

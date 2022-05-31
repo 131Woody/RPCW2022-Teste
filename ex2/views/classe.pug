@@ -1,0 +1,46 @@
+extends layout 
+
+block content 
+ h1.w3-cyan.w3-center.w3-monospace Classe #{dados.codigo}
+
+ h2 Informações gerais 
+
+ table 
+  tr 
+   th Título 
+   th Código 
+   th Status
+   tr
+    td= dados.titulo 
+    td= dados.codigo
+    td= dados.status
+    
+ if dados.filhos.length > 0
+  h2 Descendentes 
+  table 
+   tr
+    th Código 
+    each f in dados.filhos 
+     tr 
+      td
+       a(href='/classe/' + f.codigo)= f.codigo  
+    
+ if dados.nivel == 3
+  if dados.termosInd.length > 0
+   h2 Termos de Índice 
+   table
+    tr
+     th Termo 
+     each t in dados.termosInd
+      tr 
+       td= t.termo
+    
+ if dados.nivel == 1
+  p
+   a(href='/') Voltar à Página Inicial
+ else 
+  p
+   a(href='/classe/' + dados.pai.codigo) Voltar à Página Anterior
+  p
+   a(href='/') Voltar à Página Inicial
+    

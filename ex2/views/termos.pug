@@ -1,0 +1,21 @@
+extends layout 
+
+block content 
+ h1.w3-cyan.w3-center.w3-monospace Termos de Índice
+
+ table 
+  tr 
+   th Termo 
+   th Id Classe
+   th Classe 
+
+   each t in dados
+    tr
+     td= t.termo
+     td
+      a(href='/classe/' + t.idClasse)= t.idClasse
+     td
+      a(href='/classe/' + t.idClasse)= t.tituloClasse
+    
+ p
+  a(href='/') Voltar à Página Inicial
